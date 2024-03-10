@@ -2,6 +2,7 @@ services:
   backend:
     build:
       context: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
     env_file:
       - ./envs/backend.env
       - ./envs/postgres.env
@@ -14,6 +15,7 @@ services:
       - ./backend:/app
     networks:
       - postgres_network
+      - backend_network
 
   postgres:
     image: postgres:15.6-alpine
@@ -31,4 +33,6 @@ volumes:
 
 networks:
   postgres_network:
+    driver: bridge
+  backend_network:
     driver: bridge
