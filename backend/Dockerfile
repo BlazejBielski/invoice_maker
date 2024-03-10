@@ -21,10 +21,6 @@ COPY pyproject.toml poetry.lock /app/
 
 RUN poetry install --no-interaction --no-ansi --no-root
 
-RUN apt-get update && apt-get install -y netcat
-
-COPY ./entrypoint.sh ./
-
-ENTRYPOINT ["./entrypoint.sh"]
+RUN apt-get update && apt-get install -y netcat-traditional
 
 COPY . .
