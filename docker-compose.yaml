@@ -15,7 +15,6 @@ services:
       - ./backend:/app
     networks:
       - postgres_network
-      - backend_network
 
   postgres:
     image: postgres:15.6-alpine
@@ -33,6 +32,4 @@ volumes:
 
 networks:
   postgres_network:
-    driver: bridge
-  backend_network:
     driver: bridge
