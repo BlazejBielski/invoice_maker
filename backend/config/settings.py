@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework",
     # internal apps
     "users.apps.UsersConfig",
+    "invoices.apps.InvoicesConfig",
 ]
 
 MIDDLEWARE = [
