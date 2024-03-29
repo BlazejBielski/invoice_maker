@@ -27,15 +27,16 @@ class Products(TimeStampModel):
 class Contractors(TimeStampModel):
     name = models.CharField(max_length=150)
     nip = models.CharField(max_length=14)
-    address_1 = models.CharField(max_length=150)
+    street = models.CharField(max_length=150)
     address_2 = models.CharField(max_length=150)
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
+    email = models.EmailField()
+    phone = models.CharField(max_length=8)
 
     def __str__(self):
         return self.name
-
 
 
 class Invoices(TimeStampModel):
@@ -45,6 +46,11 @@ class Invoices(TimeStampModel):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=4)
     comment = models.CharField(max_length=255)
+    sale_date = models.DateField()
+    issue_date = models.DateField()
+    payment_date = models.DateField()
+
+
 
     def __str__(self):
         return f'{self.owner} + {self.number}'
