@@ -16,7 +16,7 @@ class Products(TimeStampModel):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     vat_rate = models.IntegerField(choices=VAT_RATE_CHOICES, default=VAT_RATE_CHOICES[0])
-    comments = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
     pkd = models.CharField(max_length=7)
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
@@ -25,7 +25,17 @@ class Products(TimeStampModel):
 
 
 class Contractors(TimeStampModel):
-    pass
+    name = models.CharField(max_length=150)
+    nip = models.CharField(max_length=14)
+    address_1 = models.CharField(max_length=150)
+    address_2 = models.CharField(max_length=150)
+    zip_code = models.CharField(max_length=10)
+    city = models.CharField(max_length=20)
+    country = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
 
 
 class Invoices(TimeStampModel):
@@ -34,6 +44,7 @@ class Invoices(TimeStampModel):
     contractors = models.ForeignKey(Contractors, on_delete=models.DO_NOTHING)
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=4)
+    comment = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.owner
+        return f'{self.owner} + {self.number}'
