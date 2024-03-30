@@ -27,7 +27,7 @@ class Contractors(TimeStampModel):
     name = models.CharField(max_length=150)
     nip = models.CharField(max_length=14)
     street = models.CharField(max_length=150)
-    address_2 = models.CharField(max_length=150)
+    address = models.CharField(max_length=150)
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
