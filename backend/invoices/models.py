@@ -18,7 +18,6 @@ class Products(TimeStampModel):
     vat_rate = models.IntegerField(choices=VAT_RATE_CHOICES, default=VAT_RATE_CHOICES[0])
     comment = models.CharField(max_length=255)
     pkd = models.CharField(max_length=7)
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -49,8 +48,6 @@ class Invoices(TimeStampModel):
     sale_date = models.DateField()
     issue_date = models.DateField()
     payment_date = models.DateField()
-
-
 
     def __str__(self):
         return f'{self.owner} + {self.number}'
