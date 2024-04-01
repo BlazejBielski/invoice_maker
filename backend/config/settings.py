@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     # internal apps
     "users.apps.UsersConfig",
     "invoices.apps.InvoicesConfig",
+    "products.apps.ProductsConfig",
+    "contractors.apps.ContractorsConfig",
 ]
 
 MIDDLEWARE = [

@@ -4,6 +4,9 @@ from utils.timestamp import TimeStampModel
 
 
 class Contractors(TimeStampModel):
+    """
+    Contractors model
+    """
     name = models.CharField(max_length=150)
     nip = models.CharField(max_length=14)
     street = models.CharField(max_length=150)

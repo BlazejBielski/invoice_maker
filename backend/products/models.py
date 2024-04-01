@@ -12,6 +12,9 @@ VAT_RATE_CHOICES = [
 
 
 class Products(TimeStampModel):
+    """
+    Model for product
+    """
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     vat_rate = models.IntegerField(choices=VAT_RATE_CHOICES, default=VAT_RATE_CHOICES[0])

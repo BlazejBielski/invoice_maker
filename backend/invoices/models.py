@@ -7,6 +7,9 @@ from utils.timestamp import TimeStampModel
 
 
 class Invoices(TimeStampModel):
+    """
+    Invoices model
+    """
     number = models.CharField()
     products = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
     contractors = models.ForeignKey(Contractors, on_delete=models.DO_NOTHING)
