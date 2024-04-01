@@ -14,7 +14,7 @@ class Invoices(TimeStampModel):
     products = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
     contractors = models.ForeignKey(Contractors, on_delete=models.DO_NOTHING)
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=4)
+    amount = models.IntegerField(default=1)
     comment = models.CharField(max_length=255)
     sale_date = models.DateField()
     issue_date = models.DateField()
