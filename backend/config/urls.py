@@ -16,8 +16,13 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/v1/", include("invoice.urls")),
 ]
+
+admin.site.site_header = "Invoice Maker"
+admin.site.index_title = "Invoice Maker menu"
+admin.site.site_title = "Invoice Maker admin cms"

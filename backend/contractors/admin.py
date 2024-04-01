@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from contractors.models import Contractors
+
+admin.site.register(Contractors)

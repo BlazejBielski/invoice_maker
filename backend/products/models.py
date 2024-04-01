@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from utils.timestamp import TimeStampModel
@@ -20,6 +21,7 @@ class Products(TimeStampModel):
     vat_rate = models.IntegerField(choices=VAT_RATE_CHOICES, default=VAT_RATE_CHOICES[0])
     comment = models.CharField(max_length=255)
     pkd = models.CharField(max_length=7)
+    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

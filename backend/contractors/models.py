@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from utils.timestamp import TimeStampModel
@@ -16,6 +17,7 @@ class Contractors(TimeStampModel):
     country = models.CharField(max_length=20)
     email = models.EmailField()
     phone = models.CharField(max_length=8)
+    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
