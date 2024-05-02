@@ -8,7 +8,7 @@ app_name = "invoices"
 
 router = DefaultRouter()
 
-router.register(r"invoices", viewsets.InvoiceViewSet, basename="product")
+router.register(r"invoices", viewsets.InvoiceViewSet, basename="invoice")
 
 urlpatterns = [
     *router.urls,

@@ -22,8 +22,10 @@ RUN apt-get update && apt-get install -y netcat-traditional
 
 RUN python -m pip install --upgrade pip
 
+COPY . .
+
 COPY ./entrypoint.sh ./
 
 ENTRYPOINT ["./entrypoint.sh"]
 
-COPY . .
+
