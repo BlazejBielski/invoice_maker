@@ -21,6 +21,8 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include("invoices.urls")),
+    path("api/v1/", include("contractors.urls")),
+    path("api/v1/", include("products.urls")),
 ]
 
 admin.site.site_header = "Invoice Maker"
